@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motiva+ | Encontre o seu caminho</title>
     
-    <!-- Fontes Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     
-    <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* --- Variáveis de Design System --- */
         :root {
             --bg: #FAFAF9;
             --bg-elevated: #FFFFFF;
@@ -34,7 +31,6 @@
             --shadow-lg: 0 20px 40px -10px rgba(124, 58, 237, 0.15);
         }
 
-        /* --- Reset --- */
         * {
             margin: 0;
             padding: 0;
@@ -54,7 +50,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Noise texture sutil no fundo */
         body::before {
             content: '';
             position: fixed;
@@ -86,7 +81,6 @@
             color: inherit;
         }
 
-        /* --- Navbar Fixa com Blur --- */
         .navbar {
             position: fixed;
             top: 16px;
@@ -174,7 +168,6 @@
             }
         }
 
-        /* --- Hero Section --- */
         .hero {
             position: relative;
             padding: 180px 20px 120px;
@@ -183,7 +176,6 @@
             z-index: 2;
         }
 
-        /* Gradiente mesh animado no fundo */
         .hero::before {
             content: '';
             position: absolute;
@@ -332,7 +324,6 @@
             }
         }
 
-        /* --- Container --- */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -374,7 +365,6 @@
             margin: 0 auto;
         }
 
-        /* --- Bento Grid de Áreas --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -416,7 +406,6 @@
             opacity: 1;
         }
 
-        /* Tamanhos variados no bento */
         .bento-large {
             grid-column: span 4;
             grid-row: span 2;
@@ -482,7 +471,6 @@
             height: 16px;
         }
 
-        /* Tag no card grande */
         .bento-tag {
             display: inline-block;
             padding: 4px 10px;
@@ -505,7 +493,6 @@
             }
         }
 
-        /* --- Seção de Números --- */
         .stats-section {
             background: var(--text);
             color: var(--bg);
@@ -553,7 +540,6 @@
             font-weight: 500;
         }
 
-        /* --- Seção de Possibilidades (Editorial) --- */
         .possibilities-section {
             padding: 120px 0;
         }
@@ -639,7 +625,6 @@
             }
         }
 
-        /* --- Seção de Apoio --- */
         .support-section {
             padding: 120px 20px;
         }
@@ -757,7 +742,6 @@
             letter-spacing: -0.02em;
         }
 
-        /* --- Footer --- */
         footer {
             border-top: 1px solid var(--border);
             padding: 60px 20px 40px;
@@ -828,7 +812,6 @@
             }
         }
 
-        /* --- Animações ao rolar --- */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -843,9 +826,8 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="nav-logo">
+        <a href="index.html" class="nav-logo">
             <div class="nav-logo-icon">
                 <i data-lucide="zap" fill="currentColor"></i>
             </div>
@@ -854,16 +836,16 @@
         <div class="nav-links">
             <a href="#areas" class="nav-link">Áreas</a>
             <a href="#possibilidades" class="nav-link">Ideias</a>
+            <a href="sobre.html" class="nav-link">Sobre</a>
             <a href="#apoio" class="nav-link">Apoio</a>
             <a href="#areas" class="nav-cta">Começar</a>
         </div>
     </nav>
 
-    <!-- Hero -->
     <header class="hero">
         <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            Projeto educacional · Feito com propósito
+            Por Mariana Muniz, Eliel Victor e Pablo Raphael
         </div>
         <h1>
             Nem sempre é falta de vontade.<br>
@@ -884,7 +866,6 @@
         </div>
     </header>
 
-    <!-- Seção de Áreas (Bento Grid) -->
     <section id="areas" class="section">
         <div class="container">
             <div class="section-header reveal">
@@ -894,8 +875,7 @@
             </div>
 
             <div class="bento-grid">
-                <!-- Card Grande - Estudos -->
-                <a href="#estudos" class="bento-card bento-large reveal">
+                <a href="estudos.html" class="bento-card bento-large reveal">
                     <div>
                         <span class="bento-tag">Mais acessado</span>
                         <div class="bento-icon"><i data-lucide="book-open"></i></div>
@@ -907,8 +887,7 @@
                     </span>
                 </a>
 
-                <!-- Card Médio - Carreira -->
-                <a href="#carreira" class="bento-card bento-medium reveal">
+                <a href="carreira.html" class="bento-card bento-medium reveal">
                     <div class="bento-icon"><i data-lucide="briefcase"></i></div>
                     <h3>Carreira</h3>
                     <p>Ideias, primeiros passos e orientações para quem ainda não sabe o que quer fazer.</p>
@@ -917,8 +896,7 @@
                     </span>
                 </a>
 
-                <!-- Card Pequeno - Autoconhecimento -->
-                <a href="#autoconhecimento" class="bento-card bento-small reveal">
+                <a href="autoconhecimento.html" class="bento-card bento-small reveal">
                     <div class="bento-icon"><i data-lucide="brain"></i></div>
                     <h3>Autoconhecimento</h3>
                     <p>Refletir sobre interesses e próximos passos.</p>
@@ -927,8 +905,7 @@
                     </span>
                 </a>
 
-                <!-- Card Pequeno - Esporte -->
-                <a href="#esporte" class="bento-card bento-small reveal">
+                <a href="esporte.html" class="bento-card bento-small reveal">
                     <div class="bento-icon"><i data-lucide="dumbbell"></i></div>
                     <h3>Esporte</h3>
                     <p>Sair da rotina e se movimentar.</p>
@@ -937,8 +914,7 @@
                     </span>
                 </a>
 
-                <!-- Card Pequeno - Cultura -->
-                <a href="#cultura" class="bento-card bento-small reveal">
+                <a href="cultura.html" class="bento-card bento-small reveal">
                     <div class="bento-icon"><i data-lucide="palette"></i></div>
                     <h3>Cultura e Arte</h3>
                     <p>Expressão, escape e convivência.</p>
@@ -947,8 +923,7 @@
                     </span>
                 </a>
 
-                <!-- Card Médio - Apoio -->
-                <a href="#apoio" class="bento-card bento-medium reveal">
+                <a href="apoio.html" class="bento-card bento-medium reveal">
                     <div class="bento-icon"><i data-lucide="heart-handshake"></i></div>
                     <h3>Apoio</h3>
                     <p>Quando está difícil, procurar alguém também é um passo corajoso e necessário.</p>
@@ -960,7 +935,6 @@
         </div>
     </section>
 
-    <!-- Seção de Números -->
     <section class="section" style="padding-top: 0;">
         <div class="stats-section reveal">
             <div class="stats-grid">
@@ -984,7 +958,6 @@
         </div>
     </section>
 
-    <!-- Seção de Possibilidades -->
     <section id="possibilidades" class="possibilities-section">
         <div class="container">
             <div class="section-header reveal">
@@ -1034,14 +1007,13 @@
         </div>
     </section>
 
-    <!-- Seção de Apoio -->
     <section id="apoio" class="support-section">
         <div class="support-card reveal">
             <div class="support-icon">
                 <i data-lucide="heart"></i>
             </div>
             <h2>Você não precisa resolver tudo <span class="serif">sozinho.</span></h2>
-            <p>Se estiver passando por um momento difícil, converse com alguém de confiança, com a escola ou procure os serviços de apoio disponíveis na sua região. O Motiva+ é um projeto educacional e não substitui atendimento profissional.</p>
+            <p>Se estiver passando por um momento difícil, converse com alguém de confiança, com a escola ou procure os serviços de apoio disponíveis na sua região.</p>
             
             <a href="tel:188" class="cvv-card">
                 <div class="cvv-icon">
@@ -1055,47 +1027,44 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="#" class="nav-logo">
+                <a href="index.html" class="nav-logo">
                     <div class="nav-logo-icon">
                         <i data-lucide="zap" fill="currentColor"></i>
                     </div>
                     Motiva<span style="color: var(--primary);">+</span>
                 </a>
-                <p>Projeto educacional feito com propósito para ajudar jovens a encontrarem seu caminho.</p>
+                <p>Feito por Mariana Muniz, Eliel Victor e Pablo Raphael para ajudar jovens a encontrarem seu caminho.</p>
             </div>
             <div class="footer-col">
                 <h5>Áreas</h5>
                 <ul>
-                    <li><a href="#estudos">Estudos</a></li>
-                    <li><a href="#carreira">Carreira</a></li>
-                    <li><a href="#autoconhecimento">Autoconhecimento</a></li>
-                    <li><a href="#esporte">Esporte</a></li>
+                    <li><a href="estudos.html">Estudos</a></li>
+                    <li><a href="carreira.html">Carreira</a></li>
+                    <li><a href="autoconhecimento.html">Autoconhecimento</a></li>
+                    <li><a href="esporte.html">Esporte</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h5>Projeto</h5>
                 <ul>
-                    <li><a href="#possibilidades">Ideias</a></li>
-                    <li><a href="#apoio">Apoio</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                    <li><a href="apoio.html">Apoio</a></li>
                     <li><a href="https://www.cvv.org.br" target="_blank">CVV</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>© 2026 Motiva+. Projeto educacional.</div>
+            <div>© 2026 Motiva+. Mariana Muniz, Eliel Victor e Pablo Raphael.</div>
             <div>Feito com 💜 para quem busca um caminho.</div>
         </div>
     </footer>
 
     <script>
-        // Renderizar ícones Lucide
         lucide.createIcons();
 
-        // Animação de reveal ao rolar
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1106,7 +1075,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Efeito de luz seguindo o mouse nos cards
         document.querySelectorAll('.bento-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
