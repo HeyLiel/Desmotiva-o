@@ -1,90 +1,442 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Conecta Jovem</title>
-<meta name="description" content="Conecta Jovem - ideias, apoio e oportunidades para jovens.">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motiva+ | Encontre o seu caminho</title>
+    
+    <!-- Fontes Modernas do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Profissionais (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- Variáveis de Cores e Configurações --- */
+        :root {
+            --primary: #6366F1;       /* Índigo moderno */
+            --primary-dark: #4F46E5;  /* Índigo escuro para hover */
+            --accent: #F59E0B;        /* Âmbar para destaques */
+            --bg: #F8FAFC;            /* Fundo cinza muito claro */
+            --card-bg: #FFFFFF;       /* Fundo dos cards */
+            --text: #1E293B;          /* Texto principal (quase preto) */
+            --text-light: #64748B;    /* Texto secundário (cinza) */
+            --success: #10B981;       /* Verde para mensagens de apoio */
+        }
+
+        /* --- Reset Básico --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Hero Section (Topo) --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            background: linear-gradient(135deg, #E0E7FF 0%, #F8FAFC 100%);
+            border-bottom-left-radius: 48px;
+            border-bottom-right-radius: 48px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* --- Seções Gerais --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Grid de Cards (Áreas) --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 32px 28px;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: #EEF2FF;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .card:hover .card-link {
+            gap: 10px;
+        }
+
+        /* --- Seção de Possibilidades --- */
+        .possibilities {
+            background-color: white;
+            border-radius: 32px;
+            padding: 60px 40px;
+            margin: 40px 20px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .possibilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .possibility-item {
+            text-align: center;
+        }
+
+        .possibility-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #E2E8F0;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .possibility-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .possibility-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* --- Seção de Apoio (Importante) --- */
+        .support-section {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 48px 48px 0 0;
+            margin-top: 60px;
+        }
+
+        .support-section h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .support-section p {
+            color: #94A3B8;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+        }
+
+        .cvv-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 16px 28px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cvv-badge strong {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0F172A;
+            color: #64748B;
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px 50px;
+                border-bottom-left-radius: 32px;
+                border-bottom-right-radius: 32px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .logo {
+                font-size: 2rem;
+            }
+            .possibilities {
+                padding: 40px 24px;
+                margin: 20px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <a class="brand" href="index.html">Conecta Jovem</a>
-  <button class="hamb" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
-  <nav>
-    <a href="#problema">O projeto</a>
-    <a href="#caminhos">O que você precisa?</a>
-    <a href="#ideias">Ideias</a>
-    <a href="#apoio">Apoio</a>
-  </nav>
-</header>
 
-<main>
-<section class="hero">
-  <div>
-    <p class="tag">PROJETO CONECTA JOVEM</p>
-    <h1>Nem sempre é falta de vontade.<br><em>Às vezes, falta um caminho.</em></h1>
-    <p class="intro">Um espaço criado para reunir informações, ideias e oportunidades que podem ajudar jovens a estudar, trabalhar, se cuidar e encontrar novas possibilidades.</p>
-    <a class="button dark" href="#caminhos">Ver caminhos</a>
-  </div>
-  <div class="hero-note">
-    <div class="scribble">↗</div>
-    <strong>Por onde começar?</strong>
-    <p>Escolha o que mais combina com o que você está procurando neste momento.</p>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="logo">
+            <i data-lucide="zap"></i> Motiva<span>+</span>
+        </div>
+        <h1>Nem sempre é falta de vontade.<br>Às vezes, falta um caminho.</h1>
+        <p>Um espaço criado para reunir informações, ideias e oportunidades que podem ajudar você a estudar, trabalhar, se cuidar e encontrar novas possibilidades.</p>
+        <a href="#areas" class="btn-cta">Explorar áreas</a>
+    </header>
 
-<section id="problema" class="plain">
-  <p class="tag">POR QUE O PROJETO EXISTE</p>
-  <div class="cols">
-    <h2>Jovens cada vez mais desmotivados.</h2>
-    <div>
-      <p>Muitos jovens acabam perdendo a vontade de participar dos compromissos do dia a dia ou até de fazer atividades básicas.</p>
-      <p>No projeto, foram levantados fatores como cansaço, estresse, falta de reconhecimento, comparação, ambiente negativo e falta de oportunidades.</p>
-    </div>
-  </div>
-  <div class="facts">
-    <span>cansaço</span><span>ansiedade</span><span>falta de oportunidades</span><span>excesso de telas</span><span>problemas familiares</span><span>comparação</span>
-  </div>
-</section>
+    <!-- Áreas de Foco -->
+    <section id="areas" class="container">
+        <h2 class="section-title">O que você precisa hoje?</h2>
+        <p class="section-subtitle">Não precisa escolher tudo. Veja uma área, pegue uma ideia e comece por ela.</p>
+        
+        <div class="cards-grid">
+            <!-- Card 1 -->
+            <a href="#estudos" class="card">
+                <div class="card-icon"><i data-lucide="book-open"></i></div>
+                <h3>🎓 Estudos</h3>
+                <p>Como estudar melhor, organizar a rotina e encontrar cursos gratuitos ou acessíveis.</p>
+                <span class="card-link">Entrar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
 
-<section id="caminhos" class="paths">
-  <div class="heading">
-    <div><p class="tag">ESCOLHA UMA ÁREA</p><h2>O que você precisa hoje?</h2></div>
-    <p>Não precisa escolher tudo. Veja uma área, pegue uma ideia e comece por ela.</p>
-  </div>
-  <div class="cards">
-    <a href="estudos.html" class="card"><span>01</span><b>🎓 Estudos</b><p>Como estudar melhor, organizar a rotina e encontrar cursos.</p><i>Entrar →</i></a>
-    <a href="carreira.html" class="card"><span>02</span><b>💼 Carreira</b><p>Ideias para quem ainda não sabe o que quer fazer.</p><i>Entrar →</i></a>
-    <a href="autoconhecimento.html" class="card"><span>03</span><b>🧠 Autoconhecimento</b><p>Refletir sobre interesses, objetivos e próximos passos.</p><i>Entrar →</i></a>
-    <a href="esporte.html" class="card"><span>04</span><b>⚽ Esporte</b><p>Atividades para sair da rotina, se movimentar e conhecer pessoas.</p><i>Entrar →</i></a>
-    <a href="cultura.html" class="card"><span>05</span><b>🎨 Cultura e arte</b><p>Música, arte e cultura como formas de expressão e convivência.</p><i>Entrar →</i></a>
-    <a href="apoio.html" class="card"><span>06</span><b>🤝 Apoio</b><p>Quando está difícil, procurar alguém também é um passo.</p><i>Entrar →</i></a>
-  </div>
-</section>
+            <!-- Card 2 -->
+            <a href="#carreira" class="card">
+                <div class="card-icon"><i data-lucide="briefcase"></i></div>
+                <h3>💼 Carreira</h3>
+                <p>Ideias, primeiros passos e orientações para quem ainda não sabe o que quer fazer.</p>
+                <span class="card-link">Entrar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
 
-<section id="ideias" class="plain ideas">
-  <p class="tag">IDEIAS LEVANTADAS NO PROJETO</p>
-  <h2>Algumas possibilidades</h2>
-  <div class="idea-grid">
-    <div><b>01</b><h3>Orientação profissional</h3><p>Ajuda para conhecer áreas, cursos e possibilidades de trabalho.</p></div>
-    <div><b>02</b><h3>Rodas de conversa</h3><p>Espaços para conversar sobre saúde mental, propósito e desafios.</p></div>
-    <div><b>03</b><h3>Atividades culturais</h3><p>Música, esporte, arte e outros projetos para incentivar participação.</p></div>
-    <div><b>04</b><h3>Autoconhecimento</h3><p>Workshops e atividades para pensar melhor sobre objetivos.</p></div>
-  </div>
-</section>
+            <!-- Card 3 -->
+            <a href="#autoconhecimento" class="card">
+                <div class="card-icon"><i data-lucide="brain"></i></div>
+                <h3>🧠 Autoconhecimento</h3>
+                <p>Refletir sobre interesses, objetivos, valores e próximos passos na vida.</p>
+                <span class="card-link">Entrar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
 
-<section id="apoio" class="support">
-  <p class="tag">UMA COISA IMPORTANTE</p>
-  <h2>Você não precisa resolver tudo sozinho.</h2>
-  <p>Se estiver passando por um momento difícil, converse com alguém de confiança, com a escola ou procure os serviços de apoio disponíveis na sua região.</p>
-  <small>O Conecta Jovem é um projeto educacional e não substitui atendimento profissional.</small>
-</section>
-</main>
+            <!-- Card 4 -->
+            <a href="#esporte" class="card">
+                <div class="card-icon"><i data-lucide="dumbbell"></i></div>
+                <h3>⚽ Esporte</h3>
+                <p>Atividades para sair da rotina, se movimentar, cuidar do corpo e conhecer pessoas.</p>
+                <span class="card-link">Entrar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
 
-<footer>
-  <div><b>Conecta Jovem</b><p>Mariana Muniz · Pablo Raphael · Eliel Victor</p></div>
-  <a href="#caminhos">Voltar para os caminhos ↑</a>
-</footer>
+            <!-- Card 5 -->
+            <a href="#cultura" class="card">
+                <div class="card-icon"><i data-lucide="palette"></i></div>
+                <h3>🎨 Cultura e Arte</h3>
+                <p>Música, arte e cultura como formas de expressão, escape e convivência.</p>
+                <span class="card-link">Entrar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="#apoio" class="card">
+                <div class="card-icon"><i data-lucide="heart-handshake"></i></div>
+                <h3>🤝 Apoio</h3>
+                <p>Quando está difícil, procurar alguém também é um passo corajoso e necessário.</p>
+                <span class="card-link">Entrar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Possibilidades -->
+    <section class="possibilities">
+        <h2 class="section-title">Algumas possibilidades</h2>
+        <p class="section-subtitle">Ideias levantadas no projeto para transformar a realidade.</p>
+        
+        <div class="possibilities-grid">
+            <div class="possibility-item">
+                <div class="possibility-number">01</div>
+                <h4>Orientação Profissional</h4>
+                <p>Ajuda para conhecer áreas, cursos e possibilidades de trabalho.</p>
+            </div>
+            <div class="possibility-item">
+                <div class="possibility-number">02</div>
+                <h4>Rodas de Conversa</h4>
+                <p>Espaços seguros para falar sobre saúde mental, propósito e desafios.</p>
+            </div>
+            <div class="possibility-item">
+                <div class="possibility-number">03</div>
+                <h4>Atividades Culturais</h4>
+                <p>Música, esporte e arte para incentivar a participação e o pertencimento.</p>
+            </div>
+            <div class="possibility-item">
+                <div class="possibility-number">04</div>
+                <h4>Autoconhecimento</h4>
+                <p>Workshops e atividades para pensar melhor sobre seus próprios objetivos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Apoio -->
+    <section class="support-section">
+        <i data-lucide="heart" size="48" style="color: #F59E0B; margin-bottom: 20px;"></i>
+        <h2>Você não precisa resolver tudo sozinho.</h2>
+        <p>Se estiver passando por um momento difícil, converse com alguém de confiança, com a escola ou procure os serviços de apoio disponíveis na sua região. O Motiva+ é um projeto educacional e não substitui atendimento profissional.</p>
+        
+        <div class="cvv-badge">
+            <i data-lucide="phone" size="24"></i>
+            <div style="text-align: left;">
+                <div style="font-size: 0.85rem; color: #94A3B8;">Precisa conversar? Ligue para o CVV</div>
+                <strong>188</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Motiva+. Projeto educacional feito com 💜 para ajudar a encontrar o caminho.</p>
+    </footer>
+
+    <!-- Script para renderizar os ícones -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
